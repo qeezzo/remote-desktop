@@ -1,0 +1,25 @@
+#!/bin/bash
+
+# Initial time
+LTIME1=`stat -c %Z reciever`
+LTIME2=`stat -c %Z sender`
+
+echo "Last change : `stat -c %y reciever`" 
+echo "Last change : `stat -c %y sender`" 
+while true
+do
+    ATIME1=`stat -c %Z reciever`
+    ATIME2=`stat -c %Z sender`
+
+    #echo -e "\e[1A\e[KLast changed : `stat -c %y reciever`" 
+    if [[ "$ATIME1" != "$LTIME1" || "$ATIME2" != "$LTIME2" ]]
+    then
+        echo "Changed : `stat -c %y reciever`" 
+        echo "Changed : `stat -c %y sender`" 
+        ./reciever
+        LTIME1=$ATIME1
+        LTIME2=$ATIME2
+        echo ""
+    fi
+    sleep 1
+done
