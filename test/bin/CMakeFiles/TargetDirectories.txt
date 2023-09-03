@@ -1,3 +1,0 @@
-/home/renat/gigaProject/test/bin/CMakeFiles/opencv.dir
-/home/renat/gigaProject/test/bin/CMakeFiles/edit_cache.dir
-/home/renat/gigaProject/test/bin/CMakeFiles/rebuild_cache.dir

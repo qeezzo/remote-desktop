@@ -1,1 +1,0 @@
-/usr/bin/c++ -O3 -DNDEBUG -rdynamic CMakeFiles/sender.dir/src/sender.cpp.o CMakeFiles/sender.dir/src/NetServer.cpp.o CMakeFiles/sender.dir/src/NetIO.cpp.o CMakeFiles/sender.dir/src/ScreenData.cpp.o CMakeFiles/sender.dir/src/H264Encoder.cpp.o CMakeFiles/sender.dir/src/Frame.cpp.o -o sender  -lxcb -lxcb-image -lyuv src/timer/libtimer.a -lopenh264 -lX11 -lxcb-xtest 

@@ -1,7 +1,0 @@
-/home/renat/gigaProject/bin/CMakeFiles/sender.dir
-/home/renat/gigaProject/bin/CMakeFiles/reciever.dir
-/home/renat/gigaProject/bin/CMakeFiles/edit_cache.dir
-/home/renat/gigaProject/bin/CMakeFiles/rebuild_cache.dir
-/home/renat/gigaProject/bin/src/timer/CMakeFiles/timer.dir
-/home/renat/gigaProject/bin/src/timer/CMakeFiles/edit_cache.dir
-/home/renat/gigaProject/bin/src/timer/CMakeFiles/rebuild_cache.dir
