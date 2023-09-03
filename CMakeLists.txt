@@ -3,6 +3,8 @@ cmake_minimum_required(VERSION 3.2)
 project(remote-desktop LANGUAGES CXX)
 set(SrcDir "src")
 
+add_subdirectory(src/timer)
+
 add_executable(sender 
     ${SrcDir}/sender.cpp
     ${SrcDir}/NetServer.cpp
@@ -25,4 +27,3 @@ add_executable(reciever
 
 target_link_libraries(sender PRIVATE xcb xcb-image yuv timer openh264 X11 xcb-xtest)
 target_link_libraries(reciever PRIVATE xcb xcb-image yuv timer openh264 X11 xcb-xtest)
-#target_link_libraries(reciever PRIVATE yuv timer openh264 X11) 

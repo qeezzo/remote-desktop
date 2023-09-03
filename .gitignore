@@ -1,3 +1,7 @@
 .stfolder
 compile_flags.txt
 .vimrc
+./**/CMakeCache.txt
+./**/CMakeFiles
+./**/Makefile
+./**/cmake_install.cmake
