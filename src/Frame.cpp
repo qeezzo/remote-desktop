@@ -9,7 +9,7 @@ FrameI420::FrameI420(int width, int height) :
     mStride[1] = mStride[2] = mWidth / 2;
 }
 
-// TODO Looks strange. should rewrite this as con above
+// TODO: Looks strange. should rewrite this as con above
 uint8_t* FrameI420::operator[](int index) const
 {
     switch (index) {

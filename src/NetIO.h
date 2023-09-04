@@ -2,8 +2,6 @@
 #define NET_IO_H
 
 #include <cstddef>
-#include <sys/socket.h>
-#include <sys/types.h>
 
 class NetIO {
 public:
@@ -14,7 +12,7 @@ public:
     virtual ~NetIO(){};
 
     // sends entire packet of data.
-    // returns 0 if successed
+    // returns 0 if successed, -1 otherwise.
     int sendData(int socket, void* data, size_t size);
 
     // returns number of recieved bytes.

@@ -18,12 +18,11 @@
 class H264Decoder {
 private:
 
-    ISVCDecoder*    mDecoder;
-    SBufferInfo     mInfo{};
-    uint8_t*        YUVframe[3];
     int             mWidth;
     int             mHeight;
-    //FrameI420       mFrame;
+    uint8_t*        YUVframe[3];
+    ISVCDecoder*    mDecoder;
+    SBufferInfo     mInfo{};
 
 public:
     

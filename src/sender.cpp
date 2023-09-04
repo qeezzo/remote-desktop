@@ -25,18 +25,6 @@ int main()
         
         H264Encoder encoder(width, height);
         ScreenData scrData;
-        //scrData.create_window(width, height);
-        //scrData.map_window();
-        
-        //Coord coords{};
-        //do {
-        //    cout << "enter x y : ";
-        //    std::cin >> coords.x >> coords.y;
-
-        //    scrData.move_pointer_to_coords(coords);
-        //    scrData.mouse_left_click(coords);
-
-        //} while (coords.x || coords.y);
 
         bool pressed{};
         for (int i{}; i < 60*10; ++i) {

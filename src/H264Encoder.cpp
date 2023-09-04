@@ -13,7 +13,6 @@ H264Encoder::H264Encoder(int width, int height)
 
     SEncParamBase param{};
     param.iUsageType = CAMERA_VIDEO_REAL_TIME;
-    //param.iRCMode = RC_QUALITY_MODE;
     param.iTargetBitrate = 1024*1024*8;
     param.fMaxFrameRate = 60.0f;
     param.iPicWidth = mWidth;
@@ -31,18 +30,11 @@ H264Encoder::H264Encoder(int width, int height)
     mPic.pData[0] = mFrame[0];
     mPic.pData[1] = mFrame[1];
     mPic.pData[2] = mFrame[2];
-    //mPic.iStride[0] = mWidth;
-    //mPic.iStride[1] = mWidth / 2;
-    //mPic.iStride[2] = mWidth / 2;
-    //mPic.pData[0] = mpI420Buffer;
-    //mPic.pData[1] = mPic.pData[0] + mWidth * mHeight;
-    //mPic.pData[2] = mPic.pData[1] + mWidth * mHeight / 4;
 
 
-#ifdef DEBUG
-    int logLevel = WELS_LOG_INFO;
-    mEncoder->SetOption (ENCODER_OPTION_TRACE_LEVEL, &logLevel);
-#endif
+    // TODO: implement debug case output
+    // int logLevel = WELS_LOG_INFO;
+    // mEncoder->SetOption (ENCODER_OPTION_TRACE_LEVEL, &logLevel);
 }
 
 H264Encoder::~H264Encoder()
@@ -52,11 +44,7 @@ H264Encoder::~H264Encoder()
 }
 
 Packet* H264Encoder::encodeFrame(const uint8_t* frameRGBA) {
-    //libyuv::ABGRToI420( data, mWidth * 4,
-    //        mpI420Buffer, mWidth,
-    //        mpI420Buffer + mWidth * mHeight, mWidth /2,
-    //        mpI420Buffer + mWidth * mHeight * 5 / 4, mWidth / 2,
-    //        mWidth, mHeight);
+
     libyuv::ABGRToI420( frameRGBA, mWidth * 4,
             mFrame[0], mFrame.stride()[0],
             mFrame[1], mFrame.stride()[1],
@@ -87,11 +75,9 @@ Packet* H264Encoder::encodeFrame(const uint8_t* frameRGBA) {
         for (int nal{}; nal < mInfo.sLayerInfo[iLayer].iNalCount; nal++)
             iLayerSize += mInfo.sLayerInfo[iLayer].pNalLengthInByte[nal];
 
-        //memcpy(sPack.data() + offset, mInfo.sLayerInfo[iLayer].pBsBuf, iLayerSize);
         memcpy(mPack.getPtrToData() + offset, mInfo.sLayerInfo[iLayer].pBsBuf, iLayerSize);
         offset += iLayerSize;
     }
 
     return &mPack;
-    //return &sPack;
 }

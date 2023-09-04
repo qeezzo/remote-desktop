@@ -11,7 +11,7 @@ NetClient::NetClient(const std::string_view serv_name, int port)
 
     addrinfo* pRes;
     if (getaddrinfo(mServerName.c_str(), std::to_string(mPort).c_str(), &hints, &pRes))
-        throw "Error: getaddrinfo";
+        throw "Error: NetClient - getaddrinfo";
 
     // handle future exceptions for "addrinfo* pRes" with freeaddrinfo
     std::unique_ptr<addrinfo, void(*)(addrinfo*)> uptrRes(pRes, freeaddrinfo);

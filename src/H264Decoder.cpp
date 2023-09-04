@@ -12,17 +12,13 @@ H264Decoder::H264Decoder(int width, int height)
     param.bParseOnly = false;
     param.eEcActiveIdc = ERROR_CON_SLICE_COPY;
     param.uiTargetDqLayer = UCHAR_MAX;
-    //param.sVideoProperty.eVideoBsType = VIDEO_BITSTREAM_AVC;
-    //param.sVideoProperty.size = sizeof(SVideoProperty);
-    //param.uiCpuLoad = 1;
 
     if (mDecoder->Initialize(&param))
         throw "Error: failed to initialize dceoder";
 
-#ifdef DEBUG
-    int logLevel = WELS_LOG_INFO;
-    mDecoder->SetOption(DECODER_OPTION_TRACE_LEVEL, &logLevel);
-#endif
+    // TODO: implement debug case output
+    //int logLevel = WELS_LOG_INFO;
+    //mDecoder->SetOption(DECODER_OPTION_TRACE_LEVEL, &logLevel);
 }
 
 H264Decoder::~H264Decoder()

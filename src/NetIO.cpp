@@ -1,4 +1,6 @@
 #include "NetIO.h"
+#include <sys/socket.h>
+#include <sys/types.h>
 
 int NetIO::sendData(int socket, void *data, size_t size)
 {
